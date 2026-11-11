@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon plan interactif</title>
+  <title>Plan sentier de Noel</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     html, body, #map { height: 100%; width: 100%; margin: 0; }
@@ -33,7 +33,7 @@
       resetView();
       document.getElementById('reset').addEventListener('click', resetView);
     };
-    image.onerror = () => alert('Impossible de charger plan.png. Vérifie son nom et son emplacement.');
+    image.onerror = () => alert('Impossible de charger le plan !');
     image.src = 'sn26_1.png';
   </script>
 </body>
