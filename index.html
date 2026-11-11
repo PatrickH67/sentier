@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon plan interactif</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    html, body, #map { height: 100%; width: 100%; margin: 0; }
+    #map { background: #e7e7e7; }
+    .reset { position: absolute; top: 80px; left: 10px; z-index: 1000; padding: 8px 11px; border: 2px solid #aaa; border-radius: 4px; background: white; cursor: pointer; font: 16px Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <button class="reset" id="reset" title="Recentrer le plan">⌂</button>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const image = new Image();
+    image.onload = () => {
+      const width = image.naturalWidth;
+      const height = image.naturalHeight;
+      const bounds = [[0, 0], [height, width]];
+      const map = L.map('map', {
+        crs: L.CRS.Simple,
+        minZoom: -5,
+        maxZoom: 5,
+        zoomSnap: 0.25,
+        attributionControl: false
+      });
+      L.imageOverlay('sn26_1.png', bounds).addTo(map);
+      function resetView() { map.fitBounds(bounds); }
+      resetView();
+      document.getElementById('reset').addEventListener('click', resetView);
+    };
+    image.onerror = () => alert('Impossible de charger plan.png. Vérifie son nom et son emplacement.');
+    image.src = 'sn26_1.png';
+  </script>
+</body>
+</html>
