@@ -28,13 +28,13 @@
         zoomSnap: 0.25,
         attributionControl: false
       });
-      L.imageOverlay('sn26_2.png', bounds).addTo(map);
+      L.imageOverlay('sn26_3.png', bounds).addTo(map);
       function resetView() { map.fitBounds(bounds); }
       resetView();
       document.getElementById('reset').addEventListener('click', resetView);
     };
     image.onerror = () => alert('Impossible de charger le plan !');
-    image.src = 'sn26_2.png';
+    image.src = 'sn26_3.png';
   </script>
 </body>
 </html>
